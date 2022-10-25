@@ -1,0 +1,18 @@
+image: Ubuntu
+
+stack: jdk 11
+
+branches:
+  only:
+    - master
+
+build: Script
+
+install:
+  - java -jar ./artifacts/app-card-delivery.jar &
+  - chmod +x gradlew
+
+
+build_script:
+  - ./gradlew test --info
+
