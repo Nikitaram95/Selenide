@@ -38,7 +38,7 @@ public class RegistrationTest {
     void shouldSelectACityFromTheList() {
         $("[data-test-id='city'] input").setValue("Мо");
         $(withText("Москва")).click();
-         String dateTest = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        String dateTest = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         $("[data-test-id= 'date'] input").setValue(dateTest);
         $("[data-test-id='name'] input").setValue("Кузнецов Никита");
         $("[data-test-id='phone'] input").setValue("+79647989765");
@@ -49,10 +49,11 @@ public class RegistrationTest {
         $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
         $(byText(dateTest)).shouldBe(visible);
     }
+
     @Test
     void shouldSelectDate() {
         String dateTest = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-                $("[data-test-id='city'] input").setValue("Москва");
+        $("[data-test-id='city'] input").setValue("Москва");
         $(withText("Москва")).click();
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").setValue(dateTest);
@@ -64,5 +65,5 @@ public class RegistrationTest {
         $(withText("Встреча успешно забронирована на")).shouldBe(visible);
         $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
         $(byText(dateTest)).shouldBe(visible);
-        }
-        }
+    }
+}
